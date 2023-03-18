@@ -6,15 +6,34 @@ body {
   padding: 0;
   margin: 0;
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+
+}
+
+.disabled {
+  display: none;
+}
+
+.active {
+  background-color: tomato;
+}
+
+.correct {
+  background: green;
+}
+
+.incorrect {
+  background: orangered;
 }
 
 .math {
   &__wrapper {
+    position: relative;
     display: flex;
     flex-direction: column;
     margin: 0 auto;
     max-width: 1200px;
     min-height: 100vh;
+
   }
 
   &__header {
@@ -70,7 +89,7 @@ body {
   }
 
   &__body {
-    flex-grow: 1;
+    //flex-grow: 1;
 
   }
 
@@ -103,10 +122,49 @@ body {
     justify-content: center;
   }
 
+  .popup {
+    position: absolute;
+    //display: flex;
+    flex-direction: column;
+    background-color: #ccc !important;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    justify-content: center;
+    width: 80%;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 15px;
+  }
+
+  .popup__close {
+    font-size: 36px;
+    text-align: right;
+    cursor: pointer;
+    color: #2b2b2b;
+
+  }
+  .result-list{
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .result__item{
+    padding: 5px;
+
+    color: #2b2b2b;
+    &_correct{
+      background-color: green;
+    }
+    &_incorrect{
+      background-color: tomato;
+    }
+  }
+
   &__answer {
     display: flex;
     justify-content: center;
     height: 50px;
+    display: none;
 
     &-input {
       font-size: 32px;
@@ -121,5 +179,41 @@ body {
 
   &__footer {
     text-align: center;
+    border: 1px solid #fff;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 10px;
+
+    display: none;
+
+    &-result,
+    &-clear {
+      padding: 10px 20px;
+      border: 1px solid #fff;
+      cursor: pointer;
+    }
   }
+}
+
+.choices {
+  //flex-grow: 1;
+  display: flex;
+  justify-content: center;
+
+  &__item {
+    //background-color: tomato;
+    cursor: pointer;
+    margin: 0 15px;
+    border: 1px solid #fff;
+    padding: 30px;
+
+    &:hover {
+      background-color: tomato;
+    }
+  }
+}
+
+.temp {
+  flex-grow: 1;
 }
